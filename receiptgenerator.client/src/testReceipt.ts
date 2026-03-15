@@ -19,7 +19,7 @@ export const testReceipt: ReceiptDocument = {
                 bussAddress: "123 Main Street\nCity, State 12345",
                 bussPhone: "+370 6 (838) 38182",
                 dividerAtBottom: true,
-                dividerType: "dots",
+                dividerType: "lines",
                 imageUrl: '',
             }
         },
@@ -29,7 +29,7 @@ export const testReceipt: ReceiptDocument = {
             props: {
                 alignment: 0,
                 message: "Thank you for shopping with usa!",
-                dividerAtBottom: true,
+                dividerAtBottom: false,
                 dividerType: "dots",
             }
         },
@@ -40,32 +40,42 @@ export const testReceipt: ReceiptDocument = {
                 alignment: 0,
                 message: "Secondary custom message",
                 dividerAtBottom: true,
-                dividerType: "dots",
+                dividerType: "lines",
+            }
+        },
+        {
+            id: "DateTime1",
+            type: "DateTime",
+            props: {
+                alignment: 0,
+                dateTime: "6/9/2026, 3:07:09 pm",
+                dividerAtBottom: true,
+                dividerType: "lines",
             }
         },
         {
             id: "Listas01",
             type: "ItemList",
             props: {
-                rowDividerAtBottom: false,
-                rowDividerType: "dots",
+                rowDividerAtBottom: true,
+                rowDividerType: "lines",
                 rows: [
-                    { id: "row1", quantity: "20", item: "test Itemas", price: "22.30" },
-                    { id: "row2", quantity: "25", item: "test Itemas", price: "2.30" },
-                    { id: "row3", quantity: "2", item: "test Itemas", price: "19.99" }
+                    { id: "row1", quantity: "10", item: "Vistienos krutinele su cesnaku", price: "45.50" },
+                    { id: "row2", quantity: "1", item: "Snickers batonėlis", price: "1.79" },
+                    { id: "row3", quantity: "2", item: "Degtukai", price: "0.30" }
                 ],
                 totalLines: [
-                    { id: "t1", title: "SUBTOTAL", value: "39.59" },
-                    { id: "t2", title: "TAX", value: "0.00" }
+                    { id: "t1", title: "Suma", value: "35.50" },
+                    { id: "t2", title: "PVM 21%", value: "6.80" }
                 ],
                 total: {
-                    label: "Grand total",
+                    label: "Bendra suma",
                     increaseNumberSize: true,
-                    incrementSize: 50,
-                    value: "39.59",
+                    incrementSize: 80,
+                    value: "49.30",
                 },
                 sectionDividerAtBottom: true,
-                sectionDividerType: "dots",
+                sectionDividerType: "lines",
             }
         },
     ],
