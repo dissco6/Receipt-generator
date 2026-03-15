@@ -1,4 +1,4 @@
-import type { ReceiptDocument, ReceiptBlock } from "../../models/ReceiptDocument";
+import type { ReceiptDocument, ReceiptBlock } from "../models/ReceiptDocument";
 
 interface Props {
     receipt: ReceiptDocument;
