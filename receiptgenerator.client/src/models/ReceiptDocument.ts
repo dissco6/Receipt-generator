@@ -1,6 +1,7 @@
 import type { ItemListBlock } from "./blocks/ItemListBlock";
 import type { HeaderBlock } from "./blocks/HeaderBlock";
 import type { CustomMessageBlock } from "./blocks/CustomMessageBlock";
+import type { DateTimeBlock } from "./blocks/DateTimeBlock"
 
 
 export interface ReceiptDocument {
@@ -20,4 +21,4 @@ export interface ReceiptDocument {
     blocks: ReceiptBlock[];
 }
 
-export type ReceiptBlock = HeaderBlock | CustomMessageBlock | ItemListBlock;
+export type ReceiptBlock = HeaderBlock | CustomMessageBlock | ItemListBlock | DateTimeBlock;
