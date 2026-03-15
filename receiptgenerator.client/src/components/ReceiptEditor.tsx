@@ -10,6 +10,7 @@ import type { ItemListBlock, ItemRow, TotalLine } from "../models/blocks/ItemLis
 import customMessageIcon from "../assets/custMsg.svg";
 import headerIcon from "../assets/header.svg";
 import itemListIcon from "../assets/itemList.svg";
+import clockIcon from "../assets/clock.svg";
 
 interface ReceiptEditorProps {
     block: any;
@@ -214,6 +215,78 @@ export default function ReceiptEditor({
                                     dividerType: value,
                                 })
                             }
+                        />
+                    </div>
+                </Accordion>
+            );
+        }
+
+        case "DateTime": {
+            function fillCurrentDate(blockId: string) {
+                const today = new Date();
+
+                const formatted = today.toLocaleString({
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                });
+
+                updateBlockProps(blockId,
+                    {
+                        dateTime: formatted
+                    }
+                )
+            }
+            return (
+                <Accordion
+                    title="Date & Time"
+                    description={block.props.dateTime}
+                    icon={clockIcon}
+                    onDelete={() => deleteBlock(block.id)}
+                >
+                    <div className="grid gap-6">
+                        <AlignmentSelector
+                            id="dateTime_alignment"
+                            value={block.props.alignment}
+                            onChange={(e) => updateBlockProps(block.id,
+                                {
+                                    alignment: e
+                                })
+                            }
+                            label="Aligment"
+                        />
+
+                        <div>
+                            <FieldLabel htmlFor={block.id}>Date & time</FieldLabel>
+                            <input
+                                value={block.props.dateTime}
+                                onChange={(e) => updateBlockProps(block.id,
+                                    {
+                                        dateTime: e.target.value
+                                    })
+                                }
+                            />
+                            <button className="mt-4 rounded-lg border border-gray-300 px-[14px] py-2 text-xs font-semibold leading-[18px] shadow-[0_3px_2px_0_rgba(10,13,18,0.05)] cursor-pointer"
+                                onClick={() => fillCurrentDate(block.id) }>
+                                Auto-fill Current Time
+                            </button>
+                        </div>
+
+                        <DividerControl
+                            enabled={block.props.dividerAtBottom}
+                            type={block.props.dividerType}
+                            onToggle={(e) => updateBlockProps(block.id,
+                                {
+                                    dividerAtBottom: e
+                                }
+                            )}
+                            onTypeChange={(e) => updateBlockProps(block.id,
+                                {
+                                    dividerType: e
+                                }
+                            )}
                         />
                     </div>
                 </Accordion>
