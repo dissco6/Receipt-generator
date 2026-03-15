@@ -5,6 +5,8 @@ import DividerControl from "./editor/DividerControl"
 import SizeControll from "./editor/SizeControll"
 import SliderControl from "./editor/SliderControl"
 
+import type { ItemListBlock, ItemRow, TotalLine } from "../models/blocks/ItemListBlock";
+
 import customMessageIcon from "../assets/custMsg.svg"
 import headerIcon from "../assets/header.svg"
 import itemListIcon from "../assets/itemList.svg"
@@ -373,7 +375,7 @@ export default function ReceiptEditor({ block, updateBlockProps, deleteBlock }: 
                                 key={line.id}
                                 className=""
                             >
-                                <div class="grid grid-cols-[auto_108px] gap-2">
+                                <div className="grid grid-cols-[auto_108px] gap-2">
                                     <div>
                                         <FieldLabel htmlFor={`${line.id}_title`}>
                                             Title
