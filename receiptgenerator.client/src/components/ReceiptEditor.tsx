@@ -225,7 +225,7 @@ export default function ReceiptEditor({
             function fillCurrentDate(blockId: string) {
                 const today = new Date();
 
-                const formatted = today.toLocaleString({
+                const formatted = today.toLocaleString(undefined, {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
