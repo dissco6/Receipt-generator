@@ -102,6 +102,20 @@ function BlockRenderer({ block }: BlockRendererProps) {
                 </div>
             );
 
+        case "DateTime":
+            const dateTimeAlignment = block.props.alignment ?? 0;
+            const dateTimeDividerType = block.props.dividerType ?? "dots";
+            return (
+                <div className={`${dateTimeAlignment === 0 ? "text-left" : dateTimeAlignment === 1 ? "text-center" : "text-right"}`}>
+                    {block.props.dateTime}
+                    {block.props.dividerAtBottom && (
+                        <div className="w-full text-center overflow-hidden whitespace-nowrap">
+                            {dividerMap[dateTimeDividerType]}
+                        </div>
+                    )}
+                </div>
+            );
+
         case "ItemList": {
             const totalSizeMap = {
                 10: "text-[1.1em]",
